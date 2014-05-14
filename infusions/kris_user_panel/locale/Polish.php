@@ -1,0 +1,36 @@
+<?php
+$locale['title'] = 'KriS User Panel';
+$locale['desc'] = 'KriS User Panel z Zarz±dzaniem';
+$locale['ok'] = 'Ustawienia zosta³y zapisane.';
+$locale['blad'] = 'Ustawienia nie zosta³y zapisane.';
+$locale['blad1'] = 'Ustawienia nie zosta³y zapisane. B³±d wewnêtrzny';
+$locale['admin'] = 'KriS User Panel - Zarz±dzanie';
+$locale['admin1'] = '<br />Uwaga! Wy³±czenie wszystkich opcji, w³±czy standardowy panel u¿ytkownika.';
+$locale['wlacz'] = 'W³±cz';
+$locale['wylacz'] = 'Wy³±cz';
+$locale['zapisz'] = 'Zapisz';
+$locale['001'] = 'Twoje IP: ';
+$locale['002'] = 'Postów na forum: ';
+$locale['003'] = 'Komentarzy: ';
+$locale['004'] = 'Newsów: ';
+$locale['005'] = 'Zdjêæ: ';
+$locale['006'] = 'Plików: ';
+$locale['007'] = 'Brak u¿ytkowników o tym samy IP.';
+$locale['007a'] = 'Brak TOP u¿ytkowników.';
+$locale['008'] = '- Posiada ';
+$locale['009'] = ' u¿ytkowników.';
+$locale['011'] = 'Dodaj link';
+$locale['012'] = 'Dodaj newsa';
+$locale['013'] = 'Dodaj artyku³';
+$locale['014'] = 'Dodaj zdjêcie';
+$locale['015'] = 'Dodaj plik';
+$locale['016'] = 'Menu U¿ytkownika';
+$locale['017'] = 'Dodaj na stronê';
+$locale['018'] = 'Zaloguj siê';
+$locale['019'] = 'Statystyki';
+$locale['020'] = 'Zdublowane Konta';
+$locale['021'] = 'Panel Administratora';
+$locale['022'] = 'Artyku³ów: ';
+$locale['023'] = 'TOP U¿ytkownicy';
+$locale['024'] = 'Og³oszenie';
+?>

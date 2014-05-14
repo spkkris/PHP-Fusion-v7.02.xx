@@ -1,0 +1,12 @@
+$(document).ready(function()
+{
+  $(".mvp_body").hide();
+  $(".mvp_master_head").click(function()
+  {
+    $(this).next(".mvp_master_body").slideToggle(600);
+  });
+  $(".mvp_head").click(function()
+  {
+    $(this).next(".mvp_body").slideToggle(600);
+  });
+});

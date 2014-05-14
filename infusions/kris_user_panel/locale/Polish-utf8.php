@@ -1,0 +1,36 @@
+<?php
+$locale['title'] = 'KriS User Panel';
+$locale['desc'] = 'KriS User Panel z Zarządzaniem';
+$locale['ok'] = 'Ustawienia zostały zapisane.';
+$locale['blad'] = 'Ustawienia nie zostały zapisane.';
+$locale['blad1'] = 'Ustawienia nie zostały zapisane. Błąd wewnętrzny';
+$locale['admin'] = 'KriS User Panel - Zarządzanie';
+$locale['admin1'] = '<br />Uwaga! Wyłączenie wszystkich opcji, włączy standardowy panel użytkownika.';
+$locale['wlacz'] = 'Włącz';
+$locale['wylacz'] = 'Wyłącz';
+$locale['zapisz'] = 'Zapisz';
+$locale['001'] = 'Twoje IP: ';
+$locale['002'] = 'Postów na forum: ';
+$locale['003'] = 'Komentarzy: ';
+$locale['004'] = 'Newsów: ';
+$locale['005'] = 'Zdjęć: ';
+$locale['006'] = 'Plików: ';
+$locale['007'] = 'Brak użytkowników o tym samy IP.';
+$locale['007a'] = 'Brak TOP użytkowników.';
+$locale['008'] = '- Posiada ';
+$locale['009'] = ' użytkowników.';
+$locale['011'] = 'Dodaj link';
+$locale['012'] = 'Dodaj newsa';
+$locale['013'] = 'Dodaj artykuł';
+$locale['014'] = 'Dodaj zdjęcie';
+$locale['015'] = 'Dodaj plik';
+$locale['016'] = 'Menu Użytkownika';
+$locale['017'] = 'Dodaj na stronę';
+$locale['018'] = 'Zaloguj się';
+$locale['019'] = 'Statystyki';
+$locale['020'] = 'Zdublowane Konta';
+$locale['021'] = 'Panel Administratora';
+$locale['022'] = 'Artykułów: ';
+$locale['023'] = 'TOP Użytkownicy';
+$locale['024'] = 'Ogłoszenie';
+?>
