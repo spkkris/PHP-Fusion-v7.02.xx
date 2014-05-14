@@ -6,7 +6,7 @@
 +--------------------------------------------------------+
 | Plik: kris_user_panel_admin.php
 | Autor: krystian1988
-| Wersja: 2.00
+| Wersja: 4.00
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
