@@ -51,7 +51,6 @@ if ($kmfu_ustawienia['statystyki'] == 1 || $kmfu_ustawienia['top_users'] == 1 ||
 	$msg_count = dbcount("(message_id)", DB_MESSAGES, "message_to='".$userdata['user_id']."' AND message_read='0' AND message_folder='0'");
 
 	openside("Witaj: ".$userdata['user_name']."");
-	echo parseubb(parsesmileys($kmfu_ustawienia['ogloszenie']))."<br />";
 	if (iADMIN && (iUSER_RIGHTS != "" || iUSER_RIGHTS != "C")) {
 		$subm_count = dbcount("(submit_id)", DB_SUBMISSIONS);
 

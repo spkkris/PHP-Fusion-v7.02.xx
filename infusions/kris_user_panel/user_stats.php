@@ -40,8 +40,8 @@ echo "<div align='center'>";
 		echo $locale['002']."<strong>".$userdata['user_posts']."</strong><br />";
 		echo $locale['003']."<strong>".number_format(dbcount("(comment_id)", DB_COMMENTS, "comment_name='".$userdata['user_id']."'"))."</strong><br />";
 		echo $locale['004']."<strong>".number_format(dbcount("(news_id)", DB_NEWS, "news_name='".$userdata['user_id']."'"))."</strong><br />";
-		//echo $locale['005']."<strong>".number_format(dbcount("(photo_id)", DB_PHOTOS, "photo_user='".$userdata['user_id']."'"))."</strong><br />";
-		//echo $locale['006']."<strong>".number_format(dbcount("(download_id)", DB_DOWNLOADS, "download_user='".$userdata['user_id']."'"))."</strong><br />";
+		echo $locale['005']."<strong>".number_format(dbcount("(photo_id)", DB_PHOTOS, "photo_user='".$userdata['user_id']."'"))."</strong><br />";
+		echo $locale['006']."<strong>".number_format(dbcount("(download_id)", DB_DOWNLOADS, "download_user='".$userdata['user_id']."'"))."</strong><br />";
 		echo "</div>";
 		 } 
 		

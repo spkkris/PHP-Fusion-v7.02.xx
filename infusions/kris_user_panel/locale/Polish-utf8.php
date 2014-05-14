@@ -32,5 +32,4 @@ $locale['020'] = 'Zdublowane Konta';
 $locale['021'] = 'Panel Administratora';
 $locale['022'] = 'Artykułów: ';
 $locale['023'] = 'TOP Użytkownicy';
-$locale['024'] = 'Ogłoszenie';
 ?>
