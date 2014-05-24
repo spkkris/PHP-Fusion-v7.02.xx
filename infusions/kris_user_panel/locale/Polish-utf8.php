@@ -32,4 +32,18 @@ $locale['020'] = 'Zdublowane Konta';
 $locale['021'] = 'Panel Administratora';
 $locale['022'] = 'Artykułów: ';
 $locale['023'] = 'TOP Użytkownicy';
+$locale['kmf'] = 'Ustawienia';
+$locale['kmf1'] = 'Sprawdź wersję';
+$locale['ver_000'] = "Sprawdź wersję";
+$locale['ver_001'] = "Sprawdzanie aktualizacji: Jest dostępna nowa aktualizacja!!";
+$locale['ver_002'] = "<strong>Obecna wersja</strong> ";
+$locale['ver_003'] = "<strong>Nowa wersja</strong> ";
+$locale['ver_004'] = "Pobierz ją z <a href='http://www.krismods-fusion.pl/'>KriS Mods Fusion</a>";
+$locale['ver_005'] = "Sprawdzanie aktualizacji: Posiadasz najnowszą wersję.";
+$locale['ver_006'] = "<strong>Wersja</strong> ";
+$locale['ver_007'] = "Nie ma dostępnych aktualizacji.";
+$locale['ver_008'] = "Sprawdzanie aktualizacji nie powiodło się.";
+$locale['ver_009'] = "Nie można sprawdzić dostępnych aktualizacji. Zgłoś błąd na www.krismods-fusion.pl";
+$locale['ver_010'] = "Aby sprawdzić wersję, \"allow_url_fopen\" musi być włączony w php.ini";
+$locale['ver_011'] = "<strong>Wersja</strong> ";
 ?>

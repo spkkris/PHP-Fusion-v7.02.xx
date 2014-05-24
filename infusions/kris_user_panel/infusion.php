@@ -14,7 +14,7 @@ $inf_title = $locale['title'];
 $inf_description = $locale['desc'];
 $inf_version = "4.00";
 $inf_developer = "krystian1988";
-$inf_email = "admin@krismods-fusion.pl";
+$inf_email = "administracja@krismods-fusion.pl";
 $inf_weburl = "http://www.krismods-fusion.pl";
 
 $inf_folder = "kris_user_panel";
@@ -42,8 +42,7 @@ dodaj
 '1',
 '1',
 '1',
-'1',
-'Treść ogłoszenia'
+'1'
 )";
 
 $inf_adminpanel[1] = array(

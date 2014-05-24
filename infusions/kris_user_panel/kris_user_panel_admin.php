@@ -6,7 +6,7 @@
 +--------------------------------------------------------+
 | Plik: kris_user_panel_admin.php
 | Autor: krystian1988
-| Wersja: 4.00
+| Wersja: 2.00
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -25,6 +25,7 @@ if (file_exists(INFUSIONS."kris_user_panel/locale/".$settings['locale'].".php"))
 	include INFUSIONS."kris_user_panel/locale/Polish.php";
 }
 include INFUSIONS."kris_user_panel/infusion_db.php";
+include INFUSIONS."kris_user_panel/admin_navigation.php";
 if (isset($_GET['status']) && !isset($message)) {
 	if ($_GET['status'] == "su") {
 	$message = $locale['ok'];
@@ -36,7 +37,6 @@ if (isset($_GET['status']) && !isset($message)) {
 	if ($message) {	echo "<div id='close-message'><div class='admin-message'>".$message."</div></div>\n"; }
 	}
 if (isset($_POST['zapisz'])) {
-
 			
 	if (is_numeric($_POST['statystyki']) &&  is_numeric($_POST['top_users']) && is_numeric($_POST['ip_users']) && is_numeric($_POST['admin']) && is_numeric($_POST['menu_user']) && is_numeric($_POST['dodaj'])) {
 	$result = dbquery("UPDATE ".DB_KMF_USER." SET statystyki='".(isNum($_POST['statystyki']) ? $_POST['statystyki'] : "0")."', top_users='".(isNum($_POST['top_users']) ? $_POST['top_users'] : "0")."', ip_users='".(isNum($_POST['ip_users']) ? $_POST['ip_users'] : "0")."', admin='".(isNum($_POST['admin']) ? $_POST['admin'] : "0")."', menu_user='".(isNum($_POST['menu_user']) ? $_POST['menu_user'] : "0")."', dodaj='".(isNum($_POST['dodaj']) ? $_POST['dodaj'] : "0")."'");	
@@ -56,7 +56,7 @@ $kmfu_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_USER));
 	$admin = isNum($kmfu_ustawienia['admin']);
 	$menu_user = isNum($kmfu_ustawienia['menu_user']);
 	$dodaj = isNum($kmfu_ustawienia['dodaj']);
-openside($locale['admin']);
+opentable($locale['admin']);
 echo"<div style='text-align: center;' class='admin-message center'>".$locale['admin'].$locale['admin1']."</div>";
         echo "<form name='kmfu_form' method='post' action='".FUSION_SELF.$aidlink."'>\n";
 		echo "<table cellpadding='0' cellspacing='0' width='98%' style='margin-top: 10px;' class='tbl-border center'>\n<tr>\n";
@@ -101,10 +101,10 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<option value='0'".($kmfu_ustawienia['dodaj'] == "0" ? " selected='selected'" : "").">".$locale['wylacz']."</option>\n";
 		echo "</select>";
 		echo ($kmfu_ustawienia['dodaj'] == 1 ? "<img src='".INFUSIONS."kris_user_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>" : "<img src='".INFUSIONS."kris_user_panel/img/off.png' alt='".$locale['wylacz']."' class='admin-icons'/>");
-		echo "</td></tr><tr>\n";
+	echo "</td></tr><tr>\n";
 		echo"</table>\n";
 		echo "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>\n";
 		echo "</form>\n";
-closeside();
+closetable();
 require_once THEMES."templates/footer.php";
 ?>
