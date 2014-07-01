@@ -15,24 +15,6 @@
 | copyright header is strictly prohibited without
 | written permission from the original author(s).
 +--------------------------------------------------------*/
-require_once "../../maincore.php";
-require_once THEMES."templates/admin_header.php";
-include INFUSIONS."kris_user_panel/infusion_db.php";
-
-// Check if locale file is available matching the current site locale setting.
-if (file_exists(INFUSIONS."kris_user_panel/locale/".$settings['locale'].".php")) {
-// Load the locale file matching the current site locale setting.
-    include INFUSIONS."kris_user_panel/locale/".$settings['locale'].".php";
-} else {
-// Load the infusion's default locale file.
-    include INFUSIONS."kris_user_panel/locale/Polish.php";
-}
-  
-	
-if (!checkrights("KMFU") || !defined("iAUTH") || $_GET['aid'] != iAUTH) { redirect("../../index.php"); }
-
-include INFUSIONS."kris_user_panel/admin_navigation.php";
-
 opentable($locale['ver_000']);
 echo "<div width='100%' class='tbl' align='center'>";
 if(ini_get('allow_url_fopen') != false){ 
@@ -61,5 +43,4 @@ if(ini_get('allow_url_fopen') != false){
             echo "</div></div>\n";
 closetable();
 
-require_once THEMES."templates/footer.php";
 ?>

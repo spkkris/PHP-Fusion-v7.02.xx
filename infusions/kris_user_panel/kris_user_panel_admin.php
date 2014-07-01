@@ -25,7 +25,7 @@ if (file_exists(INFUSIONS."kris_user_panel/locale/".$settings['locale'].".php"))
 	include INFUSIONS."kris_user_panel/locale/Polish.php";
 }
 include INFUSIONS."kris_user_panel/infusion_db.php";
-include INFUSIONS."kris_user_panel/admin_navigation.php";
+include INFUSIONS."kris_user_panel/version_check.php";
 if (isset($_GET['status']) && !isset($message)) {
 	if ($_GET['status'] == "su") {
 	$message = $locale['ok'];
@@ -106,5 +106,6 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>\n";
 		echo "</form>\n";
 closetable();
+
 require_once THEMES."templates/footer.php";
 ?>
