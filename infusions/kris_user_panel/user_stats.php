@@ -88,7 +88,7 @@ echo "</table>
   }
   else
   { 
-    echo "<tr><td class='small'>".$locale['007']>"</td></tr>";
+    echo "<tr><td class='small'>".$locale['007']."</td></tr>";
   } 
   echo "</table><br /></div>";
    } 

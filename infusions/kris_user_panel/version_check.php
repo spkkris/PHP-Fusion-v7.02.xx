@@ -15,7 +15,7 @@
 | copyright header is strictly prohibited without
 | written permission from the original author(s).
 +--------------------------------------------------------*/
-require_once "../../../maincore.php";
+require_once "../../maincore.php";
 require_once THEMES."templates/admin_header.php";
 include INFUSIONS."kris_user_panel/infusion_db.php";
 
@@ -33,10 +33,10 @@ if (!checkrights("KMFU") || !defined("iAUTH") || $_GET['aid'] != iAUTH) { redire
 
 include INFUSIONS."kris_user_panel/admin_navigation.php";
 
-openside($locale['ver_000']);
+opentable($locale['ver_000']);
 echo "<div width='100%' class='tbl' align='center'>";
 if(ini_get('allow_url_fopen') != false){ 
-	if ($df_ddi_version = file_get_contents("http://www.dev.krismods-fusion.pl/updates/kris_user_panel.txt")) {
+	if ($df_ddi_version = file_get_contents("http://www.krismods-fusion.pl/updates/kris_user_panel.txt")) {
 		if (preg_match("/^[0-9a-z\.]+$/", $df_ddi_version)) {
 		    $in_version = dbarray(dbquery("SELECT inf_version FROM ".DB_INFUSIONS." WHERE inf_folder = 'kris_user_panel'"));	
             $inf_version = $in_version['inf_version'];
@@ -59,7 +59,7 @@ if(ini_get('allow_url_fopen') != false){
 	        echo "<div class='tbl1' align='center' style='color:#333333; font-weight:bold; border:1px solid #000000; backgorund-color:#ffffff; padding:4px; margin:5px; width:350px;' align='center'>".$locale['ver_008']."</div>\n
 		    <div class='tbl1' style='display:none;'>".$locale['ver_010']."</div>"; }
             echo "</div></div>\n";
-closeside();
+closetable();
 
 require_once THEMES."templates/footer.php";
 ?>
