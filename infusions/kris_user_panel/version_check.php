@@ -6,6 +6,7 @@
 +--------------------------------------------------------+
 | Filename: version_check.php
 | Author: krystian1988
+| Wersja: 4.00
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
