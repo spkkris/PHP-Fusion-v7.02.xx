@@ -92,7 +92,7 @@ if ($kmfu_ustawienia['statystyki'] == 1 || $kmfu_ustawienia['top_users'] == 1 ||
 	 <div class='mvp_body small' style='margin-bottom:3px'>";
 	echo "<a href='".BASEDIR."submit.php?stype=l' class='side' title='".$locale['011']."'>".$locale['011']."</a><br />";
 	echo "<a href='".BASEDIR."submit.php?stype=n' class='side' title='".$locale['012']."'>".$locale['012']."</a><br />";
-	echo "<a href='".BASEDIR."submit.php?stype=p' class='side' title='".$locale['014']."'>".$locale['014']."></a><br />";
+	echo "<a href='".BASEDIR."submit.php?stype=p' class='side' title='".$locale['014']."'>".$locale['014']."</a><br />";
 	echo "<a href='".BASEDIR."submit.php?stype=d' class='side' title='".$locale['015']."'>".$locale['015']."</a><br />
 	
 	</div>";
