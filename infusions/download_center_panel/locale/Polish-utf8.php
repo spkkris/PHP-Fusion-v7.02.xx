@@ -1,10 +1,10 @@
 <?php
-$locale['title'] = 'KriS User Panel';
-$locale['desc'] = 'KriS User Panel z Zarządzaniem';
+$locale['title'] = 'Download Center Panel';
+$locale['desc'] = 'Download CenterPanel z Zarządzaniem';
 $locale['ok'] = 'Ustawienia zostały zapisane.';
 $locale['blad'] = 'Ustawienia nie zostały zapisane.';
 $locale['blad1'] = 'Ustawienia nie zostały zapisane. Błąd wewnętrzny';
-$locale['admin'] = 'KriS User Panel - Zarządzanie';
+$locale['admin'] = 'Download Center - Zarządzanie';
 $locale['admin1'] = '<br />Uwaga! Wyłączenie wszystkich opcji, włączy standardowy panel użytkownika.';
 $locale['wlacz'] = 'Włącz';
 $locale['wylacz'] = 'Wyłącz';

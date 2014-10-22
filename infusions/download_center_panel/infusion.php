@@ -36,7 +36,7 @@ slider
 $inf_adminpanel[1] = array(
 	"title" => $locale['title'],
 	"image" => "",
-	"panel" => "download_center_panel.php",
+	"panel" => "download_center_panel_admin.php",
 	"rights" => "KMFD"
 );
 
