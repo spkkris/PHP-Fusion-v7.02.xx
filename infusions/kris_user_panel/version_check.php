@@ -1,7 +1,7 @@
 <?php
 /*-------------------------------------------------------+
 | PHP-Fusion Content Management System
-| Copyright (C) 2002 - 2011 Nick Jones
+| Copyright (C) 2002 - 2014 Nick Jones
 | http://www.php-fusion.co.uk/
 +--------------------------------------------------------+
 | Filename: version_check.php
@@ -43,5 +43,4 @@ if(ini_get('allow_url_fopen') != false){
 		    <div class='tbl1' style='display:none;'>".$locale['ver_010']."</div>"; }
             echo "</div></div>\n";
 closetable();
-
 ?>

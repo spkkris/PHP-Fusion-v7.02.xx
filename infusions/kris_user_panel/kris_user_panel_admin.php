@@ -1,7 +1,7 @@
 <?php
 /*-------------------------------------------------------+
 | PHP-Fusion Content Management System
-| Copyright (C) 2002 - 2011 Nick Jones
+| Copyright (C) 2002 - 2014 Nick Jones
 | http://www.php-fusion.co.uk/
 +--------------------------------------------------------+
 | Plik: kris_user_panel_admin.php
@@ -36,8 +36,7 @@ if (isset($_GET['status']) && !isset($message)) {
 	}
 	if ($message) {	echo "<div id='close-message'><div class='admin-message'>".$message."</div></div>\n"; }
 	}
-if (isset($_POST['zapisz'])) {
-			
+if (isset($_POST['zapisz'])) {		
 	if (is_numeric($_POST['statystyki']) &&  is_numeric($_POST['top_users']) && is_numeric($_POST['ip_users']) && is_numeric($_POST['admin']) && is_numeric($_POST['menu_user']) && is_numeric($_POST['dodaj'])) {
 	$result = dbquery("UPDATE ".DB_KMF_USER." SET statystyki='".(isNum($_POST['statystyki']) ? $_POST['statystyki'] : "0")."', top_users='".(isNum($_POST['top_users']) ? $_POST['top_users'] : "0")."', ip_users='".(isNum($_POST['ip_users']) ? $_POST['ip_users'] : "0")."', admin='".(isNum($_POST['admin']) ? $_POST['admin'] : "0")."', menu_user='".(isNum($_POST['menu_user']) ? $_POST['menu_user'] : "0")."', dodaj='".(isNum($_POST['dodaj']) ? $_POST['dodaj'] : "0")."'");	
 	if (!$result) { 
@@ -106,6 +105,5 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>\n";
 		echo "</form>\n";
 closetable();
-
 require_once THEMES."templates/footer.php";
 ?>

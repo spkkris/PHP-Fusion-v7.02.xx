@@ -1,7 +1,7 @@
 <?php
 /*-------------------------------------------------------+
 | PHP-Fusion Content Management System
-| Copyright (C) 2002 - 2011 Nick Jones
+| Copyright (C) 2002 - 2014 Nick Jones
 | http://www.php-fusion.co.uk/
 +--------------------------------------------------------+
 | Plik: kris_user_panel.php
@@ -44,16 +44,13 @@ add_to_head("<style type='text/css'>
 	</style>");
 include INFUSIONS."kris_user_panel/infusion_db.php";
 add_to_head("<script type='text/javascript' src='".INFUSIONS."kris_user_panel/mvp.js'></script>");
-
 if (iMEMBER) {
 $kmfu_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_USER.""));
 if ($kmfu_ustawienia['statystyki'] == 1 || $kmfu_ustawienia['top_users'] == 1 || $kmfu_ustawienia['ip_users'] == 1 || $kmfu_ustawienia['admin'] == 1 || $kmfu_ustawienia['menu_user'] == 1 || $kmfu_ustawienia['dodaj'] == 1) {
 	$msg_count = dbcount("(message_id)", DB_MESSAGES, "message_to='".$userdata['user_id']."' AND message_read='0' AND message_folder='0'");
-
 	openside("Witaj: ".$userdata['user_name']."");
 	if (iADMIN && (iUSER_RIGHTS != "" || iUSER_RIGHTS != "C")) {
 		$subm_count = dbcount("(submit_id)", DB_SUBMISSIONS);
-
 		if ($subm_count) {
 			echo "<div style='text-align:center;margin-top:15px;'>\n";
 			echo "<strong><a href='".ADMIN."submissions.php".$aidlink."' class='side'>".sprintf($locale['global_125'], $subm_count);
@@ -75,54 +72,40 @@ if ($kmfu_ustawienia['statystyki'] == 1 || $kmfu_ustawienia['top_users'] == 1 ||
 	echo "<a href='".BASEDIR."edit_profile.php' class='side' title='".$locale['global_120']."'>".$locale['global_120']."</a><br />";
 	echo "<a href='".BASEDIR."messages.php' class='side' title='".$locale['global_121']."'>".$locale['global_121']."</a><br />";
 	echo "<a href='".BASEDIR."members.php' class='side' title='".$locale['global_122']."'>".$locale['global_122']."</a><br />";
-
 	 if (iADMIN && (iUSER_RIGHTS != "" || iUSER_RIGHTS != "C")) { 
 		echo "<a href='".ADMIN."index.php".$aidlink."' class='side' title='".$locale['global_123']."'>".$locale['global_123']."</a><br />";
 	 } 
-
 	echo "<div align='center'><a href='".BASEDIR."index.php?logout=yes' class='uip-small uip-button uip-red' style='margin: 5px; padding:5px;' title='".$locale['global_124']."'>".$locale['global_124']."</a></div>
-
-	
 </div>";
  } 
-	
 	if ($kmfu_ustawienia['dodaj'] == 1) {
-	
 	 echo "<div class='side-label mvp_head small' style='cursor: pointer;' title='".$locale['017']."'>".$locale['017']."</div>
 	 <div class='mvp_body small' style='margin-bottom:3px'>";
 	echo "<a href='".BASEDIR."submit.php?stype=l' class='side' title='".$locale['011']."'>".$locale['011']."</a><br />";
 	echo "<a href='".BASEDIR."submit.php?stype=n' class='side' title='".$locale['012']."'>".$locale['012']."</a><br />";
 	echo "<a href='".BASEDIR."submit.php?stype=p' class='side' title='".$locale['014']."'>".$locale['014']."</a><br />";
 	echo "<a href='".BASEDIR."submit.php?stype=d' class='side' title='".$locale['015']."'>".$locale['015']."</a><br />
-	
 	</div>";
-	 } 
-	 
+	 }
 	 closeside();
 	} else {
 	$msg_count = dbcount("(message_id)", DB_MESSAGES, "message_to='".$userdata['user_id']."' AND message_read='0' AND message_folder='0'");
-
 	openside($userdata['user_name']);
 	echo THEME_BULLET." <a href='".BASEDIR."edit_profile.php' class='side'>".$locale['global_120']."</a><br />\n";
 	echo THEME_BULLET." <a href='".BASEDIR."messages.php' class='side'>".$locale['global_121']."</a><br />\n";
 	echo THEME_BULLET." <a href='".BASEDIR."members.php' class='side'>".$locale['global_122']."</a><br />\n";
-
 	if (iADMIN && (iUSER_RIGHTS != "" || iUSER_RIGHTS != "C")) {
 		echo THEME_BULLET." <a href='".ADMIN."index.php".$aidlink."' class='side'>".$locale['global_123']."</a><br />\n";
 	}
-
 	echo THEME_BULLET." <a href='".BASEDIR."index.php?logout=yes' class='side'>".$locale['global_124']."</a>\n";
-
 	if ($msg_count) {
 		echo "<div style='text-align:center;margin-top:15px;'>\n";
 		echo "<strong><a href='".BASEDIR."messages.php' class='side'>".sprintf($locale['global_125'], $msg_count);
 		echo ($msg_count == 1 ? $locale['global_126'] : $locale['global_127'])."</a></strong>\n";
 		echo "</div>\n";
 	}
-
 	if (iADMIN && checkrights("SU")) {
 		$subm_count = dbcount("(submit_id)", DB_SUBMISSIONS);
-
 		if ($subm_count) {
 			echo "<div style='text-align:center;margin-top:15px;'>\n";
 			echo "<strong><a href='".ADMIN."submissions.php".$aidlink."' class='side'>".sprintf($locale['global_125'], $subm_count);
@@ -138,9 +121,7 @@ if ($kmfu_ustawienia['statystyki'] == 1 || $kmfu_ustawienia['top_users'] == 1 ||
 		if (isset($_GET['redirect']) && strstr($_GET['redirect'], "/")) {
 			$action_url = cleanurl(urldecode($_GET['redirect']));
 		}
-
 		openside($locale['global_100']); 
-		
 	 echo "<div align='center'>
 		<form name='loginform' method='post' action='".$action_url."'>";
 		echo $locale['global_101']."<br /><input type='text' name='user_name' class='textbox' style='width:100px' /><br />";
@@ -148,12 +129,10 @@ if ($kmfu_ustawienia['statystyki'] == 1 || $kmfu_ustawienia['top_users'] == 1 ||
 		<label><input type='checkbox' name='remember_me' value='y' title='".$locale['global_103']."' style='vertical-align:middle;' /></label>
 		<input type='submit' name='login' value='".$locale['global_104']."' class='button' /><br />
 		</form><br />";
-
 		if ($settings['enable_registration']) { 
 			 echo $locale['global_105']."<br /><br />";
 		 } 
 		 echo $locale['global_106']."</div>";
-		
 		 closeside();
 	}
 }

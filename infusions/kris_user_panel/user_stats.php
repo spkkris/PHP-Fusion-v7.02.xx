@@ -1,7 +1,7 @@
 <?php
 /*-------------------------------------------------------+
 | PHP-Fusion Content Management System
-| Copyright (C) 2002 - 2011 Nick Jones
+| Copyright (C) 2002 - 2014 Nick Jones
 | http://www.php-fusion.co.uk/
 +--------------------------------------------------------+
 | Plik: user_stats.php
@@ -24,7 +24,6 @@ if (file_exists(INFUSIONS."kris_user_panel/locale/".$settings['locale'].".php"))
 }
 add_to_head("<script type='text/javascript' src='".INFUSIONS."kris_user_panel/mvp.js'></script>");
 include LOCALE.LOCALESET."admin/main.php";
-
 echo "<div align='center'>";
 	 if ($userdata['user_avatar'] != "") {  
     echo "<img src='".IMAGES."avatars/".$userdata['user_avatar']."'/><br /><br />";
@@ -32,7 +31,6 @@ echo "<div align='center'>";
 			echo "<img src='".IMAGES."avatars/noavatar100.png' /><br /><br />";
 		 } 
 		echo "</div>";
-		
 	if ($kmfu_ustawienia['statystyki'] == 1) {
 		echo "<div class='side-label mvp_head small' style='cursor: pointer;' title='".$locale['019']."'>".$locale['019']."</div>
 	<div class='mvp_body small' style='margin-bottom:3px'>";
@@ -44,7 +42,6 @@ echo "<div align='center'>";
 		echo $locale['006']."<strong>".number_format(dbcount("(download_id)", DB_DOWNLOADS, "download_user='".$userdata['user_id']."'"))."</strong><br />";
 		echo "</div>";
 		 } 
-		
 	if ($kmfu_ustawienia['top_users'] == 1) {
 	echo "<div class='side-label mvp_head small' style='cursor: pointer;' title='".$locale['023']."'>".$locale['023']."</div>
 	<div class='mvp_body small' style='margin-bottom:3px'>";
@@ -61,7 +58,6 @@ echo "<tr><td class='small'>".$locale['007a']."</td></tr>";
 echo "</table>
 	</div>";
 	 } 
-	
 	if ($kmfu_ustawienia['ip_users'] == 1) {
 	
 		if(iSUPERADMIN) {
@@ -93,9 +89,7 @@ echo "</table>
   echo "</table><br /></div>";
    } 
   }
-   
 	if ($kmfu_ustawienia['admin'] == 1) {
-	
    if(iADMIN){
   echo "<div class='side-label mvp_head small' style='cursor: pointer;' title='".$locale['021']."'>".$locale['021']."</div>
 	<div class='mvp_body small' style='margin-bottom:3px'>";
@@ -108,23 +102,17 @@ while ($data = dbarray($result)) {
 		$pages[$data['admin_page']] .= "<option value='".ADMIN.$data['admin_link'].$aidlink."'>".preg_replace("/&(?!(#\d+|\w+);)/", "&amp;", $data['admin_title'])."</option>\n";
 	}
 }
-
 $content = false;
 for ($i = 1; $i < 6; $i++) {
 	$page = $pages[$i];
-		
 	if ($page) {
 		$admin_pages = true; 
-		
 		echo "<form action='".FUSION_SELF."'>
 		<select onchange='window.location.href=this.value' style='width:100%;' class='textbox'>
 		<option value='".FUSION_SELF."' style='font-style:italic;' selected='selected'>".$locale['ac0'.$i]."</option>
 		".$page."</select></form>";
-		
 		 $content = true;
-		
 	}
-	
 }
 echo "</div>";
 }

@@ -1,7 +1,7 @@
 <?php
 /*-------------------------------------------------------+
 | PHP-Fusion Content Management System
-| Copyright © 2002 - 2013 Nick Jones
+| Copyright © 2002 - 2014 Nick Jones
 | http://www.php-fusion.co.uk/
 +--------------------------------------------------------+
 | Filename: infusion_db.php
@@ -16,7 +16,6 @@
 | written permission from the original author(s).
 +--------------------------------------------------------*/
 if (!defined("IN_FUSION")) { die("Access Denied"); }
-
 if (!defined("DB_KMF_USER")) {
 	define("DB_KMF_USER", DB_PREFIX."kmf_user");
 }
