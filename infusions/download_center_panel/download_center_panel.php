@@ -4,7 +4,10 @@ if (file_exists(INFUSIONS."download_center_panel/locale/".$settings['locale'].".
 } else {
 	include INFUSIONS."download_center_panel/locale/Polish.php";
 }
+include INFUSIONS."download_center_panel/infusion_db.php";
 opentable("Ostatnio dodane pliki");
+$kmfd_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP.""));
+if ($kmfd_ustawienia['ile'] || $kmfd_ustawienia['slider'] == 1) {
 add_to_head("<style type='text/css'>
 .dl-ticker {
 		display: none;
@@ -35,16 +38,12 @@ add_to_head("<style type='text/css'>
     -moz-transition-duration: 0.8s;
     -o-transition-duration: 0.8s;
     transition-duration: 0.8s;
-     
     -webkit-transition-property: -webkit-transform;
     -moz-transition-property: -moz-transform;
     -o-transition-property: -o-transform;
     transition-property: transform;
-     
     overflow:hidden;
- 
     }  
- 
 .thumb-rotate:hover  
 {
     -webkit-transform:rotate(360deg);
@@ -89,14 +88,13 @@ filter:alpha(opacity=100);
 	}</style>
 		<script language='JavaScript' type='text/javascript' src='".INFUSIONS."download_center_panel/ticker.js'></script>
 		");
+		if ($kmfd_ustawienia['slider'] == 1) {
 		echo "<ul id='dlticker' class='dl-ticker'>";
-$pytanie = dbquery("SELECT download_id, download_title, download_count, download_image_thumb, download_description, download_description_short, download_count, download_cat FROM ".DB_DOWNLOADS." ORDER BY download_id DESC LIMIT 10");
+$pytanie = dbquery("SELECT download_id, download_title, download_count, download_image_thumb, download_description, download_description_short, download_count, download_cat FROM ".DB_DOWNLOADS." ORDER BY download_id DESC LIMIT ".$kmfd_ustawienia['ile']."");
 $brak = dbrows($pytanie);
-
                if ($brak != 0) {
 						while ($odp = dbarray($pytanie)) {
 						echo "<li>";
-
 if ($odp['download_image_thumb']) {
 							$obraz = DOWNLOADS."images/".$odp['download_image_thumb'];
 						} else {
@@ -105,18 +103,34 @@ if ($odp['download_image_thumb']) {
 						$opis = ($odp['download_description'] != "" ? nl2br(parseubb(parsesmileys($odp['download_description']))) : nl2br(stripslashes($odp['download_description_short'])));		
 echo "<table cellpadding='0' cellspacing='2' style='padding-top: 6px;' width='100%' align='center'><tr>";
 echo "<td class='tbl1' style='width: 70%;' align='left' valign='top'>".$opis."</td>";
-echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['download_title']."<br /><img src='".$obraz."' class='thumb-dl-default thumb-rotate' alt='".$odp['download_title']."'><br />Pobrań: ".$odp['download_count']."<br /><a href='".BASEDIR."downloads.php?download_id=".$odp['download_id']."' class='uip-small uip-button uip-red'>Pobierz</a></a></td>";
+echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['download_title']."<br /><img src='".$obraz."' class='thumb-dl-default thumb-rotate' alt='".$odp['download_title']."'><br />Pobrań: ".$odp['download_count']."<br /><a href='".BASEDIR."downloads.php?download_id=".$odp['download_id']."' class='uip-small uip-button uip-red'>Pobierz</a></td>";
 echo "</tr></table>";
-	
 	} 
 	echo "</li>";
-	
 	} else {
 	  echo "<div class='admin-message'>".$locale['020']."</div>";
-  
     }
 	echo "</ul>";
-
+	} else {
+$pytanie = dbquery("SELECT download_id, download_title, download_count, download_image_thumb, download_description, download_description_short, download_count, download_cat FROM ".DB_DOWNLOADS." ORDER BY download_id DESC LIMIT ".$kmfd_ustawienia['ile']."");
+$brak = dbrows($pytanie);
+               if ($brak != 0) {
+						while ($odp = dbarray($pytanie)) {
+if ($odp['download_image_thumb']) {
+							$obraz = DOWNLOADS."images/".$odp['download_image_thumb'];
+						} else {
+							$obraz = DOWNLOADS."images/no_image.jpg";
+						}
+						$opis = ($odp['download_description'] != "" ? nl2br(parseubb(parsesmileys($odp['download_description']))) : nl2br(stripslashes($odp['download_description_short'])));		
+echo "<table cellpadding='0' cellspacing='2' style='padding-top: 6px;' width='100%' align='center'><tr>";
+echo "<td class='tbl1' style='width: 70%;' align='left' valign='top'>".$opis."</td>";
+echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['download_title']."<br /><img src='".$obraz."' class='thumb-dl-default thumb-rotate' alt='".$odp['download_title']."'><br />Pobrań: ".$odp['download_count']."<br /><a href='".BASEDIR."downloads.php?download_id=".$odp['download_id']."' class='uip-small uip-button uip-red'>Pobierz</a></td>";
+echo "<hr /></tr></table>";
+	} 
+	} else {
+	  echo "<div class='admin-message'>".$locale['020']."</div>";
+    }
+	}
 closetable();
 add_to_footer("<script type='text/javascript'>
 	$(document).ready(
@@ -126,4 +140,5 @@ add_to_footer("<script type='text/javascript'>
 		}
 	);
 	</script>");
+}
 ?>
