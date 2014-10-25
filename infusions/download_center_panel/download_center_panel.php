@@ -5,6 +5,7 @@ if (file_exists(INFUSIONS."download_center_panel/locale/".$settings['locale'].".
 	include INFUSIONS."download_center_panel/locale/Polish.php";
 }
 include INFUSIONS."download_center_panel/infusion_db.php";
+include INFUSIONS."download_center_panel/inc.php";
 opentable("Ostatnio dodane pliki");
 $kmfd_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP.""));
 if ($kmfd_ustawienia['ile'] || $kmfd_ustawienia['slider'] == 1) {
@@ -131,6 +132,7 @@ echo "<hr /></tr></table>";
 	  echo "<div class='admin-message'>".$locale['020']."</div>";
     }
 	}
+	echo autor();
 closetable();
 add_to_footer("<script type='text/javascript'>
 	$(document).ready(
