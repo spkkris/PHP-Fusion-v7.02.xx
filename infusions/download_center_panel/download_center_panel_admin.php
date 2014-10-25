@@ -57,7 +57,7 @@ $kmfu_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP));
 opentable($locale['admin']);
 echo"<div style='text-align: center;' class='admin-message center'>".$locale['admin']."</div>";
         echo "<form name='kmfu_form' method='post' action='".FUSION_SELF.$aidlink."'>\n";
-		echo "<table cellpadding='0' cellspacing='0' width='98%' style='margin-top: 10px;' class='tbl-border center'>\n<tr>\n";
+		echo "<table cellpadding='0' cellspacing='0' width='100%' style='margin-top: 10px;' class='tbl-border center'>\n<tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['019']."</td>\n";
 		echo "<td  align='left' class='tbl'><input name='ile' type='number' min='1' max='255' style='width: 50px' value='".$kmfu_ustawienia['ile']."' class='textbox'>\n";
 		echo "</input>* Max. 255";
