@@ -67,7 +67,7 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<option value='1'".($kmfu_ustawienia['slider'] == "1" ? " selected='selected'" : "").">".$locale['wlacz']."</option>\n";
 		echo "<option value='0'".($kmfu_ustawienia['slider'] == "0" ? " selected='selected'" : "").">".$locale['wylacz']."</option>\n";
 		echo "</select>";
-		echo ($kmfu_ustawienia['slider'] == 1 ? "<img src='".INFUSIONS."kris_user_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>" : "<img src='".INFUSIONS."kris_user_panel/img/off.png' alt='".$locale['wylacz']."' class='admin-icons'/>");
+		echo ($kmfu_ustawienia['slider'] == 1 ? "<img src='".INFUSIONS."download_center_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>" : "<img src='".INFUSIONS."download_center_panel/img/off.png' alt='".$locale['wylacz']."' class='admin-icons'/>");
 		echo "</td></tr><tr>\n";
 		echo"</table>\n";
 		echo "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>\n";
