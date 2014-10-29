@@ -55,6 +55,7 @@ $kmfu_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP));
 	$slider = isNum($kmfu_ustawienia['slider']);
 	$wlacz = "<img src='".INFUSIONS."download_center_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>";
 	$wylacz = "<img src='".INFUSIONS."download_center_panel/img/off.png' alt='".$locale['wylacz']."' class='admin-icons'/>";
+	$zapisz = "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>";
 	;
 opentable($locale['admin']);
 echo"<div style='text-align: center;' class='admin-message center'>".$locale['admin']."</div>";
@@ -72,7 +73,7 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo ($kmfu_ustawienia['slider'] == 1 ? $wlacz : $wylacz);
 		echo "</td></tr><tr>\n";
 		echo"</table>\n";
-		echo "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>\n";
+		echo $zapisz;
 		echo "</form>\n";
 		echo autor();
 closetable();
