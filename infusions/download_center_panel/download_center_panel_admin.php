@@ -56,7 +56,7 @@ $kmfu_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP));
 	$wlacz = "<img src='".INFUSIONS."download_center_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>";
 	$wylacz = "<img src='".INFUSIONS."download_center_panel/img/off.png' alt='".$locale['wylacz']."' class='admin-icons'/>";
 	$zapisz = "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>";
-	;
+	
 opentable($locale['admin']);
 echo"<div style='text-align: center;' class='admin-message center'>".$locale['admin']."</div>";
         echo "<form name='kmfu_form' method='post' action='".FUSION_SELF.$aidlink."'>\n";
