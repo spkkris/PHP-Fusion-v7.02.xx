@@ -6,7 +6,7 @@
 +--------------------------------------------------------+
 | Plik: infusion_db.php
 | Autor: krystian1988
-| Wersja: 2.00
+| Wersja: 2.01
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
