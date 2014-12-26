@@ -40,7 +40,7 @@ if (isset($_GET['status']) && !isset($message)) {
 if (isset($_POST['zapisz'])) {
 			
 	if (is_numeric($_POST['ile']) &&  is_numeric($_POST['slider'])) {
-	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."'");	
+	$result = dbquery("UPDATE ".DB_KMF_NCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."'");	
 	if (!$result) { 
 	redirect(FUSION_SELF.$aidlink."&status=nsu");
 	} else {
@@ -50,7 +50,7 @@ if (isset($_POST['zapisz'])) {
 	redirect(FUSION_SELF.$aidlink."&status=nsue");
 	} 
 	}
-$kmfn_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP));
+$kmfn_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_NCP));
 	$ile = isNum($kmfn_ustawienia['ile']);
 	$slider = isNum($kmfn_ustawienia['slider']);
 	$wlacz = "<img src='".INFUSIONS."news_center_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>";

@@ -24,7 +24,7 @@ if (file_exists(INFUSIONS."news_center_panel/locale/".$settings['locale'].".php"
 include INFUSIONS."news_center_panel/infusion_db.php";
 include INFUSIONS."news_center_panel/inc.php";
 opentable("Ostatnio dodane newsy");
-$kmfn_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCN.""));
+$kmfn_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_NCP.""));
 if ($kmfn_ustawienia['ile'] || $kmfn_ustawienia['slider'] == 1) {
 add_to_head("<style type='text/css'>
 .dl-ticker {
@@ -108,20 +108,15 @@ filter:alpha(opacity=100);
 		");
 		if ($kmfn_ustawienia['slider'] == 1) {
 		echo "<ul id='dlticker' class='dl-ticker'>";
-$pytanie = dbquery("SELECT download_id, download_title, download_count, download_image_thumb, download_description, download_description_short, download_count, download_cat FROM ".DB_DOWNLOADS." ORDER BY download_id DESC LIMIT ".$kmfn_ustawienia['ile']."");
+$pytanie = dbquery("SELECT news_id, news_subject, news_reads, news_news FROM ".DB_NEWS." ORDER BY news_id DESC LIMIT ".$kmfn_ustawienia['ile']."");
 $brak = dbrows($pytanie);
                if ($brak != 0) {
 						while ($odp = dbarray($pytanie)) {
 						echo "<li>";
-if ($odp['download_image_thumb']) {
-							$obraz = DOWNLOADS."images/".$odp['download_image_thumb'];
-						} else {
-							$obraz = DOWNLOADS."images/no_image.jpg";
-						}
-						$opis = ($odp['download_description'] != "" ? nl2br(parseubb(parsesmileys($odp['download_description']))) : nl2br(stripslashes($odp['download_description_short'])));		
+						$opis = ($odp['news_news'] != "" ? nl2br(parseubb(parsesmileys($odp['news_news']))) : nl2br(stripslashes($odp['news_news'])));		
 echo "<table cellpadding='0' cellspacing='2' style='padding-top: 6px;' width='100%' align='center'><tr>";
 echo "<td class='tbl1' style='width: 70%;' align='left' valign='top'>".$opis."</td>";
-echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['download_title']."<br /><img src='".$obraz."' class='thumb-dl-default thumb-rotate' alt='".$odp['download_title']."'><br />".$locale['018'].$odp['download_count']."<br /><a href='".BASEDIR."downloads.php?download_id=".$odp['download_id']."' class='uip-small uip-button uip-red'>".$locale['017']."</a></td>";
+echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['news_subject']."<br /><br />".$locale['018'].$odp['news_reads']."<br /><a href='".BASEDIR."news.php?readmore=".$odp['news_id']."' class='uip-small uip-button uip-red'>".$locale['017']."</a></td>";
 echo "</tr></table>";
 	} 
 	echo "</li>";
