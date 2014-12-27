@@ -33,90 +33,28 @@ add_to_head("<style type='text/css'>
 		padding: 3px;
 		margin-bottom: 2px;
 		height:auto;
-	   }
-	   .uip-button  {
-	           background: #222 repeat-x; 
-	           display: inline-block; 
-	           padding: 5px 10px 6px; 
-	           color: #fff; 
-	           text-decoration: none;
-	           -moz-border-radius: 6px; 
-	           -webkit-border-radius: 6px;
-	           -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-	           -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-	           text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-	           border-bottom: 1px solid rgba(0,0,0,0.25);
-	           position: relative;
-	           cursor: pointer
-               }
-.uip-red.uip-button { background-color: #e62727; }
-.uip-red.uip-button:hover { background-color: #cf2525; }
-.thumb-rotate{
-    -webkit-transition-duration: 0.8s;
-    -moz-transition-duration: 0.8s;
-    -o-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    transition-property: transform;
-    overflow:hidden;
-    }  
-.thumb-rotate:hover  
-{
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
-}  
-.thumb-dl-default {
--moz-opacity: 0.80;
--khtml-opacity: 0.80;
-opacity: 0.80;
--ms-filter:'progid:DXImageTransform.Microsoft.Alpha'(Opacity=80);
-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
-filter:alpha(opacity=80);
-	background-color: #c0c0c0;
-	-moz-box-shadow: inset 0 0 2px 2px #d8d8d8;
-    -webkit-box-shadow: inset 0 0 2px 2px#4770e3;
-    box-shadow: inset 0 0 2px 2px #4770e3;
-	border: 1px solid #4770e3;
-	-webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-	margin: 6px 5px 0 0; /* top right bottom left*/
-	padding: 5px;
-	}
-	.thumb-dl-default:hover {
--moz-opacity: 1;
--khtml-opacity: 1;
-opacity: 1;
--ms-filter:'progid:DXImageTransform.Microsoft.Alpha'(Opacity=100);
-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
-filter:alpha(opacity=100);
-	background-color: #c0c0c0;
-	-moz-box-shadow: inset 0 0 2px 2px #d8d8d8;
-    -webkit-box-shadow: inset 0 0 2px 2px#4770e3;
-    box-shadow: inset 0 0 2px 2px #4770e3;
-	border: 1px solid #4770e3;
-		-webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-	margin: 6px 5px 0 0; /* top right bottom left*/
-	padding: 5px;
-	}</style>
+	   }</style>
 		<script language='JavaScript' type='text/javascript' src='".INFUSIONS."news_center_panel/ticker.js'></script>
 		");
 		if ($kmfn_ustawienia['slider'] == 1) {
 		echo "<ul id='dlticker' class='dl-ticker'>";
-$pytanie = dbquery("SELECT news_id, news_subject, news_reads, news_news FROM ".DB_NEWS." ORDER BY news_id DESC LIMIT ".$kmfn_ustawienia['ile']."");
+$pytanie = dbquery("SELECT tn.*, tc.*, tu.user_id, tu.user_name, tu.user_status
+			FROM ".DB_NEWS." tn
+			LEFT JOIN ".DB_USERS." tu ON tn.news_name=tu.user_id
+			LEFT JOIN ".DB_NEWS_CATS." tc ON tn.news_cat=tc.news_cat_id
+			WHERE ".groupaccess('news_visibility')." AND (news_start='0'||news_start<=".time().")
+				AND (news_end='0'||news_end>=".time().") AND news_draft='0'
+			GROUP BY news_id
+			ORDER BY news_sticky DESC, news_datestamp DESC LIMIT ".$kmfn_ustawienia['ile']."");
 $brak = dbrows($pytanie);
                if ($brak != 0) {
 						while ($odp = dbarray($pytanie)) {
 						echo "<li>";
-						$opis = ($odp['news_news'] != "" ? nl2br(parseubb(parsesmileys($odp['news_news']))) : nl2br(stripslashes($odp['news_news'])));		
-echo "<table cellpadding='0' cellspacing='2' style='padding-top: 6px;' width='100%' align='center'><tr>";
-echo "<td class='tbl1' style='width: 70%;' align='left' valign='top'>".$opis."</td>";
-echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['news_subject']."<br /><br />".$locale['018'].$odp['news_reads']."<br /><a href='".BASEDIR."news.php?readmore=".$odp['news_id']."' class='uip-small uip-button uip-red'>".$locale['017']."</a></td>";
+						$opis = ($odp['news_news'] != "" ? nl2br(stripslashes($odp['news_news'])) : nl2br(stripslashes($odp['news_news'])));		
+echo "<table cellpadding='0' cellspacing='1' style='padding-top: 2px;' width='100%' align='center'><tr>";
+echo "<a href='".BASEDIR."news.php?readmore=".$odp['news_id']."'><h2>".$odp['news_subject']."</h2></a>";
+echo $opis;
+echo "<hr /><td class='tbl1' style='width: 100%;' align='left' valign='top'>".$locale['024'].$odp['user_name'].$locale['025'].$odp['news_cat_name'].$locale['018'].$odp['news_reads']."</td>";
 echo "</tr></table>";
 	} 
 	echo "</li>";
@@ -125,20 +63,23 @@ echo "</tr></table>";
     }
 	echo "</ul>";
 	} else {
-$pytanie = dbquery("SELECT download_id, download_title, download_count, download_image_thumb, download_description, download_description_short, download_count, download_cat FROM ".DB_DOWNLOADS." ORDER BY download_id DESC LIMIT ".$kmfn_ustawienia['ile']."");
+$pytanie = dbquery("SELECT tn.*, tc.*, tu.user_id, tu.user_name, tu.user_status
+			FROM ".DB_NEWS." tn
+			LEFT JOIN ".DB_USERS." tu ON tn.news_name=tu.user_id
+			LEFT JOIN ".DB_NEWS_CATS." tc ON tn.news_cat=tc.news_cat_id
+			WHERE ".groupaccess('news_visibility')." AND (news_start='0'||news_start<=".time().")
+				AND (news_end='0'||news_end>=".time().") AND news_draft='0'
+			GROUP BY news_id
+			ORDER BY news_sticky DESC, news_datestamp DESC LIMIT ".$kmfn_ustawienia['ile']."");
 $brak = dbrows($pytanie);
                if ($brak != 0) {
 						while ($odp = dbarray($pytanie)) {
-if ($odp['download_image_thumb']) {
-							$obraz = DOWNLOADS."images/".$odp['download_image_thumb'];
-						} else {
-							$obraz = DOWNLOADS."images/no_image.jpg";
-						}
-						$opis = ($odp['download_description'] != "" ? nl2br(parseubb(parsesmileys($odp['download_description']))) : nl2br(stripslashes($odp['download_description_short'])));		
-echo "<table cellpadding='0' cellspacing='2' style='padding-top: 6px;' width='100%' align='center'><tr>";
-echo "<td class='tbl1' style='width: 70%;' align='left' valign='top'>".$opis."</td>";
-echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['download_title']."<br /><img src='".$obraz."' class='thumb-dl-default thumb-rotate' alt='".$odp['download_title']."'><br />".$locale['018'].$odp['download_count']."<br /><a href='".BASEDIR."downloads.php?download_id=".$odp['download_id']."' class='uip-small uip-button uip-red'>".$locale['017']."</a></td>";
-echo "<hr /></tr></table>";
+						$opis = ($odp['news_news'] != "" ? nl2br(stripslashes($odp['news_news'])) : nl2br(stripslashes($odp['news_news'])));		
+echo "<table cellpadding='0' cellspacing='1' style='padding-top: 2px;' width='100%' align='center'><tr>";
+echo "<a href='".BASEDIR."news.php?readmore=".$odp['news_id']."'><h2>".$odp['news_subject']."</h2></a>";
+echo $opis;
+echo "<hr /><td class='tbl1' style='width: 100%;' align='left' valign='top'>".$locale['024'].$odp['user_name'].$locale['025'].$odp['news_cat_name'].$locale['018'].$odp['news_reads']."</td>";
+echo "</tr></table>";
 	} 
 	} else {
 	  echo "<div class='admin-message'>".$locale['020']."</div>";
