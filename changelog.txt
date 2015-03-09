@@ -1,1 +1,2 @@
-Trwają prace nad Download Center Panel v2.02
+Trwają prace nad Download Center Panel v2.02  //commit 09.03.2015 19:00
+Trwają prace nad News Center Panel v1.00 //commit 09.03.2015 19:40
