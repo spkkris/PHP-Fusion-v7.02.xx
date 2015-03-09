@@ -1,5 +1,1 @@
-changeLog of download center panel
-
-=================================
-=Zmienione pliki /  Change files=
-=================================
+- dodano zmiany w Panelu Zarządzania wtyczką
