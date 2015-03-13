@@ -1,3 +1,4 @@
 Trwają prace nad Download Center Panel v2.02  //commit 09.03.2015 19:00
 Trwają prace nad News Center Panel v1.00 //commit 09.03.2015 19:40
 Sugestie prosimy zgłaszać na naszym forum //commit 09.03.2015 20:40
+Dodano reklamy w nawigacji dodaj. Zapraszamy do współpracy reklamowej //commit 13.03.2015 19:26
