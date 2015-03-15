@@ -6,7 +6,7 @@
 +--------------------------------------------------------+
 | Plik: inc.php
 | Autor: krystian1988
-| Wersja: 2.01
+| Wersja: 2.02
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -19,7 +19,7 @@
 if (!defined("IN_FUSION")) { die("Access Denied"); }
 function autor() {
 $www = "http://www.krismods-fusion.pl";
-$copy = "Copyright KriS Mods Fusion 2014";
+$copy = "Copyright KriS Mods Fusion ".date("Y");
 echo "<div align='right'><a href='".$www."' target='_blank' title='".$copy."'>©</a></div>";
 }
 
