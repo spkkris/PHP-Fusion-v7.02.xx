@@ -25,7 +25,7 @@ include INFUSIONS."download_center_panel/infusion_db.php";
 include INFUSIONS."download_center_panel/inc.php";
 opentable("Ostatnio dodane pliki");
 $kmfd_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP));
-if ($kmfd_ustawienia['ile'] || $kmfd_ustawienia['slider'] == 1) {
+if ($kmfd_ustawienia['czas'] || $kmfd_ustawienia['slider'] == 1) {
 add_to_head("<style type='text/css'>
 .dl-ticker {
 		display: none;
@@ -124,7 +124,7 @@ closetable();
 add_to_footer("<script type='text/javascript'>
 	$(document).ready(
 		function() {
-			$('#dlticker').dlTicker('7000');
+			$('#dlticker').dlTicker('".$kmfd_ustawienia['czas']."');
 			$('#dlticker').show('slow');
 		}
 	);

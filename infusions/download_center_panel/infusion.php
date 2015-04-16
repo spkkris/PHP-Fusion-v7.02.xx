@@ -41,6 +41,7 @@ $inf_newtable[1] = DB_KMF_DCP." (
    ile TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    slider TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    strona TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+   czas TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    PRIMARY KEY (ile)
 ) ENGINE=MyISAM;";
 $inf_insertdbrow[1] = DB_KMF_DCP." (
@@ -50,7 +51,8 @@ strona
 ) VALUES (
 '10',
 '1',
-'1'
+'1',
+'10'
 )";
 
 $inf_adminpanel[1] = array(

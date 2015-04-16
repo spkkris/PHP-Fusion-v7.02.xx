@@ -10,6 +10,7 @@ $locale['wylacz'] = 'Wyłącz';
 $locale['zapisz'] = 'Zapisz';
 $locale['lewa'] = 'Lewe';
 $locale['prawa'] = 'Prawe';
+$locale['czas'] = 'Czas';
 $locale['changelog'] = 'ChangeLog';
 $locale['all'] = 'Przeglądaj Wszystkie Pliki';
 $locale['dodaj'] = 'Dodaj Plik do Pobieralni';

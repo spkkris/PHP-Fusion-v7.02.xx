@@ -45,8 +45,8 @@ if (isset($_GET['status']) && !isset($message)) {
 	}
 if (isset($_POST['zapisz'])) {
 			
-	if (is_numeric($_POST['ile']) &&  is_numeric($_POST['slider']) &&  is_numeric($_POST['strona'])) {
-	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."', strona='".(isNum($_POST['strona']) ? $_POST['strona'] : "0")."'");	
+	if (is_numeric($_POST['ile']) &&  is_numeric($_POST['slider']) &&  is_numeric($_POST['strona']) &&  is_numeric($_POST['czas'])) {
+	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."', strona='".(isNum($_POST['strona']) ? $_POST['strona'] : "0")."', czas='".(isNum($_POST['czas']) ? $_POST['czas'] : "0")."'");	
 	if (!$result) { 
 	redirect(FUSION_SELF.$aidlink."&status=nsu");
 	} else {
@@ -60,6 +60,7 @@ $kmfu_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP));
 	$ile = isNum($kmfu_ustawienia['ile']);
 	$slider = isNum($kmfu_ustawienia['slider']);
 	$strona = isNum($kmfu_ustawienia['strona']);
+	$czas = isNum($kmfu_ustawienia['czas']);
 	$wlacz = "<img src='".INFUSIONS."download_center_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>";
 	$wylacz = "<img src='".INFUSIONS."download_center_panel/img/off.png' alt='".$locale['wylacz']."' class='admin-icons'/>";
 	$zapisz = "<div style='text-align:center;margin-top:10px;margin-bottom:10px;'><input type='submit' class='button' name='zapisz' value='".$locale['zapisz']."' /></div>";
@@ -83,6 +84,10 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<option value='1'".($kmfu_ustawienia['strona'] == "1" ? " selected='selected'" : "").">".$locale['lewa']."</option>\n";
 		echo "<option value='0'".($kmfu_ustawienia['strona'] == "0" ? " selected='selected'" : "").">".$locale['prawa']."</option>\n";
 		echo "</select>";
+		echo "</td></tr><tr>\n";
+		echo "<td  class='tbl' width='50%' align='left'>".$locale['czas']."</td>\n";
+		echo "<td  align='left' class='tbl'><input name='ile' type='czas' min='1' max='255' style='width: 70px' value='".$kmfu_ustawienia['czas']."' class='textbox'>\n";
+		echo "</input>* Max. 255 sekund";
 		echo "</td></tr><tr>\n";
 		echo"</table>\n";
 		echo $zapisz;
