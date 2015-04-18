@@ -6,7 +6,7 @@
 +--------------------------------------------------------+
 | Plik: infusion.php
 | Autor: krystian1988
-| Wersja: 2.02
+| Wersja: 2.03
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -29,7 +29,7 @@ include INFUSIONS."download_center_panel/infusion_db.php";
 // Infusion general information
 $inf_title = $locale['title'];
 $inf_description = $locale['desc'];
-$inf_version = "2.02";
+$inf_version = "2.03";
 $inf_developer = "krystian1988";
 $inf_email = "admin@krismods-fusion.pl";
 $inf_weburl = "http://www.krismods-fusion.pl";
@@ -47,12 +47,13 @@ $inf_newtable[1] = DB_KMF_DCP." (
 $inf_insertdbrow[1] = DB_KMF_DCP." (
 ile,
 slider,
-strona
+strona,
+czas
 ) VALUES (
 '10',
 '1',
 '1',
-'10'
+'5'
 )";
 
 $inf_adminpanel[1] = array(

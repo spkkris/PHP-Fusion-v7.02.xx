@@ -6,7 +6,7 @@
 +--------------------------------------------------------+
 | Plik: download_center_panel_admin.php
 | Autor: krystian1988
-| Wersja: 2.02
+| Wersja: 2.03
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -86,7 +86,7 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "</select>";
 		echo "</td></tr><tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['czas']."</td>\n";
-		echo "<td  align='left' class='tbl'><input name='ile' type='czas' min='1' max='255' style='width: 70px' value='".$kmfu_ustawienia['czas']."' class='textbox'>\n";
+		echo "<td  align='left' class='tbl'><input name='czas' type='number' min='1' max='255' style='width: 70px' value='".$kmfu_ustawienia['czas']."' class='textbox'>\n";
 		echo "</input>* Max. 255 sekund";
 		echo "</td></tr><tr>\n";
 		echo"</table>\n";

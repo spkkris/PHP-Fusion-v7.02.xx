@@ -6,7 +6,7 @@
 +--------------------------------------------------------+
 | Plik: download_center_panel.php
 | Autor: krystian1988
-| Wersja: 2.02
+| Wersja: 2.03
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -124,7 +124,7 @@ closetable();
 add_to_footer("<script type='text/javascript'>
 	$(document).ready(
 		function() {
-			$('#dlticker').dlTicker('".$kmfd_ustawienia['czas']."');
+			$('#dlticker').dlTicker('".$kmfd_ustawienia['czas']."000');
 			$('#dlticker').show('slow');
 		}
 	);
