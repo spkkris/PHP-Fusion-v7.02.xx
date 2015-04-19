@@ -70,7 +70,7 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<table cellpadding='0' cellspacing='0' width='100%' style='margin-top: 10px;' class='tbl-border center'>\n<tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['019']."</td>\n";
 		echo "<td  align='left' class='tbl'><input name='ile' type='number' min='1' max='255' style='width: 70px' value='".$kmfu_ustawienia['ile']."' class='textbox'>\n";
-		echo "</input>* Max. 255";
+		echo "</input>".$locale['26'];
 		echo "</td></tr><tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['023']."</td>\n";
 		echo "<td  align='left' class='tbl'><select name='slider' class='textbox'>\n";
@@ -86,8 +86,8 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "</select>";
 		echo "</td></tr><tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['czas']."</td>\n";
-		echo "<td  align='left' class='tbl'><input name='czas' type='number' min='1' max='255' style='width: 70px' value='".$kmfu_ustawienia['czas']."' class='textbox'>\n";
-		echo "</input>* Max. 255 sekund";
+		echo "<td  align='left' class='tbl'><input name='czas' type='number' min='5' max='60' style='width: 70px' value='".$kmfu_ustawienia['czas']."' class='textbox'>\n";
+		echo "</input>".$locale['25'];
 		echo "</td></tr><tr>\n";
 		echo"</table>\n";
 		echo $zapisz;
