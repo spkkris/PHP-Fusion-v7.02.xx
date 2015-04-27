@@ -1,5 +1,5 @@
 Trwają testy Download Center Panel v2.03 dodano zmianę czasu slidera // commit 18.04.2015 9:15
 Wydano Download Center Panel v2.02  //commit 16.03.2015 12:10
-Trwają prace nad News Center Panel v1.00 //commit 09.03.2015 19:40
+Trwają prace nad News Center Panel v1.00 //commit 09.03.2015 19:40 // odwołano
 Sugestie prosimy zgłaszać na naszym forum //commit 09.03.2015 20:40
 Dodano reklamy w nawigacji dodaj. Zapraszamy do współpracy reklamowej //commit 13.03.2015 19:26
