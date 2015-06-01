@@ -31,7 +31,6 @@ $plik = file_get_contents('https://raw.githubusercontent.com/spkkris/PHP-Fusion-
 highlight_string($plik);
 
 closetable();
-include INFUSIONS."download_center_panel/version_check.php";
 include INFUSIONS."download_center_panel/inc.php";
 if (isset($_GET['status']) && !isset($message)) {
 	if ($_GET['status'] == "su") {
