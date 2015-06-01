@@ -18,8 +18,8 @@
 +--------------------------------------------------------*/
 if (!defined("IN_FUSION")) { die("Access Denied"); }
 function autor() {
-$www = "http://www.krismods-fusion.pl";
-$copy = "Copyright KriS Mods Fusion ".date("Y");
+$www = "http://www.php-fusion.pl/profile.php?lookup=17574";
+$copy = "Copyright krystian1988 ".date("Y");
 echo "<div align='right'><a href='".$www."' target='_blank' title='".$copy."'>©</a></div>";
 }
 
