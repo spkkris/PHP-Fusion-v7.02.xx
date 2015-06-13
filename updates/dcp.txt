@@ -1,3 +1,4 @@
-- dodano zmiany w Panelu Zarządzania wtyczką
-- dodano położenie.
-- dodano przeglądanie plików oraz dodaj plik
+﻿- Dodano czas trwania slidera
+- Poprawki kodu
+- Wydanie wersji v2.03
+Link: http://www.php-fusion.pl/forum/viewthread.php?thread_id=37410
