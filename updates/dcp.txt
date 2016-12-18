@@ -1,5 +1,3 @@
-﻿- Dodano położenie
-- Dodano czas trwania slidera
-- Poprawki kodu
-- Wydanie wersji v2.03
+﻿Za niedługo nowa oficjalna wersja!
+Możliwe że jeszcze w tym roku!
 Link: http://www.php-fusion.pl/forum/viewthread.php?thread_id=37410
