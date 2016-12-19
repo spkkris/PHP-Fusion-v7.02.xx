@@ -35,4 +35,7 @@ $locale['ver_008'] = "Sprawdzanie aktualizacji nie powiodło się.";
 $locale['ver_009'] = "Nie można sprawdzić dostępnych aktualizacji. Zgłoś błąd na www.krismods-fusion.pl";
 $locale['ver_010'] = "Aby sprawdzić wersję, \"allow_url_fopen\" musi być włączony w php.ini";
 $locale['ver_011'] = "<strong>Wersja</strong> ";
+$locale['025'] = "Skrócony opis pliku";
+$locale['026'] = "Pełny opis pliku";
+$locale['027'] = "Pokaż:";
 ?>
