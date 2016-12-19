@@ -5,8 +5,8 @@
 | http://www.php-fusion.co.uk/
 +--------------------------------------------------------+
 | Plik: inc.php
-| Autor: krystian1988
-| Wersja: 2.02
+| Autor: DysNet
+| Wersja: 2.04 FINAL
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -18,8 +18,8 @@
 +--------------------------------------------------------*/
 if (!defined("IN_FUSION")) { die("Access Denied"); }
 function autor() {
-$www = "http://www.php-fusion.pl/profile.php?lookup=17574";
-$copy = "Copyright krystian1988 ".date("Y");
+$www = "http://www.dysnet.pl";
+$copy = "Copyright DysNet ".date("Y");
 echo "<div align='right'><a href='".$www."' target='_blank' title='".$copy."'>©</a></div>";
 }
 
