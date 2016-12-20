@@ -45,7 +45,7 @@ if (isset($_GET['status']) && !isset($message)) {
 if (isset($_POST['zapisz'])) {
 			
 	if (is_numeric($_POST['ile']) &&  is_numeric($_POST['slider']) &&  is_numeric($_POST['pokaz']) &&  is_numeric($_POST['wysokosc']) &&  is_numeric($_POST['strona']) &&  is_numeric($_POST['czas'])) {
-	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."', pokaz='".(isNum($_POST['pokaz']) ? $_POST['pokaz'] : "0")."', strona='".(isNum($_POST['strona']) ? $_POST['strona'] : "0")."', czas='".(isNum($_POST['czas']) ? $_POST['czas'] : "0")."'");	
+	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."', pokaz='".(isNum($_POST['pokaz']) ? $_POST['pokaz'] : "0")."', wysokosc='".(isNum($_POST['wysokosc']) ? $_POST['wysokosc'] : "0")."', strona='".(isNum($_POST['strona']) ? $_POST['strona'] : "0")."', czas='".(isNum($_POST['czas']) ? $_POST['czas'] : "0")."'");	
 	if (!$result) { 
 	redirect(FUSION_SELF.$aidlink."&status=nsu");
 	} else {
@@ -71,7 +71,7 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<table cellpadding='0' cellspacing='0' width='100%' style='margin-top: 10px;' class='tbl-border center'>\n<tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['019']."</td>\n";
 		echo "<td  align='left' class='tbl'><input name='ile' type='number' min='1' max='255' style='width: 70px' value='".$kmfu_ustawienia['ile']."' class='textbox'>\n";
-		echo "</input>".$locale['26'];
+		echo "</input>".$locale['026'];
 		echo "</td></tr><tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['023']."</td>\n";
 		echo "<td  align='left' class='tbl'><select name='slider' class='textbox'>\n";
@@ -90,7 +90,6 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<td  align='left' class='tbl'><input name='wysokosc' type='number' min='5' max='60' style='width: 70px' value='".$kmfu_ustawienia['wysokosc']."' class='textbox'>\n";
 		echo "</input>".$locale['29'];
 		echo "</td></tr><tr>\n";
-		echo ($kmfu_ustawienia['pokaz'] == 1 ? $wlacz : $wylacz);
 		echo "</td></tr><tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['024']."</td>\n";
 		echo "<td  align='left' class='tbl'><select name='strona' class='textbox'>\n";
@@ -100,7 +99,7 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "</td></tr><tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['czas']."</td>\n";
 		echo "<td  align='left' class='tbl'><input name='czas' type='number' min='5' max='60' style='width: 70px' value='".$kmfu_ustawienia['czas']."' class='textbox'>\n";
-		echo "</input>".$locale['25'];
+		echo "</input>".$locale['025'];
 		echo "</td></tr><tr>\n";
 		echo"</table>\n";
 		echo $zapisz;
