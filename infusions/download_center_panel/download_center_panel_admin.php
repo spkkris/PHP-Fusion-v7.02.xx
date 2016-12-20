@@ -44,7 +44,7 @@ if (isset($_GET['status']) && !isset($message)) {
 	}
 if (isset($_POST['zapisz'])) {
 			
-	if (is_numeric($_POST['ile']) &&  is_numeric($_POST['slider']) &&  is_numeric($_POST['pokaz']) &&  is_numeric($_POST['strona']) &&  is_numeric($_POST['czas'])) {
+	if (is_numeric($_POST['ile']) &&  is_numeric($_POST['slider']) &&  is_numeric($_POST['pokaz']) &&  is_numeric($_POST['wysokosc']) &&  is_numeric($_POST['strona']) &&  is_numeric($_POST['czas'])) {
 	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."', pokaz='".(isNum($_POST['pokaz']) ? $_POST['pokaz'] : "0")."', strona='".(isNum($_POST['strona']) ? $_POST['strona'] : "0")."', czas='".(isNum($_POST['czas']) ? $_POST['czas'] : "0")."'");	
 	if (!$result) { 
 	redirect(FUSION_SELF.$aidlink."&status=nsu");
@@ -59,6 +59,7 @@ $kmfu_ustawienia = dbarray(dbquery("SELECT * FROM ".DB_KMF_DCP));
 	$ile = isNum($kmfu_ustawienia['ile']);
 	$slider = isNum($kmfu_ustawienia['slider']);
 	$pokaz = isNum($kmfu_ustawienia['pokaz']);
+	$wysokosc = isNum($kmfu_ustawienia['wysokosc']);
 	$strona = isNum($kmfu_ustawienia['strona']);
 	$czas = isNum($kmfu_ustawienia['czas']);
 	$wlacz = "<img src='".INFUSIONS."download_center_panel/img/on.png' alt='".$locale['wlacz']."' class='admin-icons'/>";
@@ -84,6 +85,11 @@ echo"<div style='text-align: center;' class='admin-message center'>".$locale['ad
 		echo "<option value='1'".($kmfu_ustawienia['pokaz'] == "1" ? " selected='selected'" : "").">".$locale['25']."</option>\n";
 		echo "<option value='0'".($kmfu_ustawienia['pokaz'] == "0" ? " selected='selected'" : "").">".$locale['26']."</option>\n";
 		echo "</select>";
+		echo "</td></tr><tr>\n";
+		echo "<td  class='tbl' width='50%' align='left'>".$locale['28']."</td>\n";
+		echo "<td  align='left' class='tbl'><input name='wysokosc' type='number' min='5' max='60' style='width: 70px' value='".$kmfu_ustawienia['wysokosc']."' class='textbox'>\n";
+		echo "</input>".$locale['29'];
+		echo "</td></tr><tr>\n";
 		echo ($kmfu_ustawienia['pokaz'] == 1 ? $wlacz : $wylacz);
 		echo "</td></tr><tr>\n";
 		echo "<td  class='tbl' width='50%' align='left'>".$locale['024']."</td>\n";

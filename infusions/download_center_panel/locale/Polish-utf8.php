@@ -11,7 +11,7 @@ $locale['zapisz'] = 'Zapisz';
 $locale['lewa'] = 'Lewe';
 $locale['prawa'] = 'Prawe';
 $locale['czas'] = 'Czas';
-$locale['25'] = '* Min. 5 selund Max. 60 sekund';
+$locale['25'] = '* Min. 5 sekund Max. 60 sekund';
 $locale['26'] = '* Max. 255';
 $locale['changelog'] = 'ChangeLog';
 $locale['all'] = 'Przeglądaj Wszystkie Pliki';
@@ -38,4 +38,6 @@ $locale['ver_011'] = "<strong>Wersja</strong> ";
 $locale['025'] = "Skrócony opis pliku";
 $locale['026'] = "Pełny opis pliku";
 $locale['027'] = "Pokaż:";
+$locale['028'] = "Wysokość:";
+$locale['25'] = '* Min. 5 px Max. 1000 px';
 ?>

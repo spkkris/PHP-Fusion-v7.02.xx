@@ -26,7 +26,7 @@ include INFUSIONS."download_center_panel/infusion_db.php";
 // Infusion general information
 $inf_title = $locale['title'];
 $inf_description = $locale['desc'];
-$inf_version = "2.03";
+$inf_version = "2.04";
 $inf_developer = "DysNet";
 $inf_email = "admin@dysnet.pl";
 $inf_weburl = "http://www.dysnet.pl";
@@ -34,6 +34,7 @@ $inf_folder = "download_center_panel";
 $inf_newtable[1] = DB_KMF_DCP." (
    ile TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    slider TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+   wysokosc TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    pokaz TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    strona TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    czas TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
@@ -43,12 +44,14 @@ $inf_insertdbrow[1] = DB_KMF_DCP." (
 ile,
 slider,
 pokaz,
+wysokosc,
 strona,
 czas
 ) VALUES (
 '10',
 '1',
 '1',
+'auto',
 '1',
 '5'
 )";
