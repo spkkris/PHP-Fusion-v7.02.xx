@@ -39,7 +39,7 @@ if (isset($_GET['status']) && !isset($message)) {
 if (isset($_POST['zapisz'])) {
 			
 	if (is_numeric($_POST['ile']) &&  is_numeric($_POST['slider']) &&  is_numeric($_POST['pokaz']) &&  is_numeric($_POST['strona']) &&  is_numeric($_POST['czas'])) {
-	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."', pokaz='".(isNum($_POST['pokaz']) ? $_POST['pokaz'] : "0")."', wysokosc='".(isNum($_POST['wysokosc']) ? $_POST['wysokosc'] : "0")."', strona='".(isNum($_POST['strona']) ? $_POST['strona'] : "0")."', czas='".(isNum($_POST['czas']) ? $_POST['czas'] : "0")."'");	
+	$result = dbquery("UPDATE ".DB_KMF_DCP." SET ile='".(isNum($_POST['ile']) ? $_POST['ile'] : "0")."', slider='".(isNum($_POST['slider']) ? $_POST['slider'] : "0")."', pokaz='".(isNum($_POST['pokaz']) ? $_POST['pokaz'] : "0")."', strona='".(isNum($_POST['strona']) ? $_POST['strona'] : "0")."', czas='".(isNum($_POST['czas']) ? $_POST['czas'] : "0")."'");	
 	if (!$result) { 
 	redirect(FUSION_SELF.$aidlink."&status=nsu");
 	} else {
