@@ -34,7 +34,6 @@ $inf_folder = "download_center_panel";
 $inf_newtable[1] = DB_KMF_DCP." (
    ile TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    slider TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
-   wysokosc TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    pokaz TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    strona TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
    czas TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
@@ -44,14 +43,12 @@ $inf_insertdbrow[1] = DB_KMF_DCP." (
 ile,
 slider,
 pokaz,
-wysokosc,
 strona,
 czas
 ) VALUES (
 '10',
 '1',
 '1',
-'auto',
 '1',
 '5'
 )";

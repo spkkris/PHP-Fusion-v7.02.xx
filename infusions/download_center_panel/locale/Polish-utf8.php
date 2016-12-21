@@ -13,7 +13,6 @@ $locale['prawa'] = 'Prawe';
 $locale['czas'] = 'Czas';
 $locale['025'] = '* Min. 5 sekund Max. 60 sekund';
 $locale['026'] = '* Max. 255';
-$locale['changelog'] = 'ChangeLog';
 $locale['all'] = 'Przeglądaj Wszystkie Pliki';
 $locale['dodaj'] = 'Dodaj Plik do Pobieralni';
 $locale['017'] = 'Pobierz';
@@ -25,6 +24,4 @@ $locale['024'] = 'Położenie';
 $locale['25'] = "Skrócony opis pliku";
 $locale['26'] = "Pełny opis pliku";
 $locale['27'] = "Pokaż:";
-$locale['28'] = "Wysokość:";
-$locale['29'] = '* Min. 5 px Max. 1000 px';
 ?>
