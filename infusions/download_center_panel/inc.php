@@ -19,7 +19,7 @@
 if (!defined("IN_FUSION")) { die("Access Denied"); }
 function autor() {
 $www = "http://www.dysnet.pl";
-$copy = "Copyright DysNet ".date("Y");
+$copy = "Copyright DysNet 2014 - ".date("Y");
 echo "<div align='right'><a href='".$www."' target='_blank' title='".$copy."'>©</a></div>";
 }
 
