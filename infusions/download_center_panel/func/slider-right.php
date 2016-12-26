@@ -22,8 +22,8 @@ if ($kmfd_ustawienia['pokaz'] == 1) {
 							$opis = nl2br(parseubb(parsesmileys($odp['download_description'])));
 							}						
 echo "<table cellpadding='0' cellspacing='2' style='padding-top: 6px;' width='100%' align='center'><tr>";
-echo "<td style='width: 70%;' align='left' valign='top'>".$opis."</td>";
-echo "<td style='width: 30%;' align='center' valign='top'>".$odp['download_title']."<br /><img src='".$obraz."' class='thumb-dl-default thumb-rotate' alt='".$odp['download_title']."'><br />".$locale['018'].$odp['download_count']."<br /><a href='".BASEDIR."downloads.php?download_id=".$odp['download_id']."' class='uip-small uip-button uip-red'>".$locale['017']."</a></td>";
+echo "<td class='tbl1' style='width: 70%;' align='left' valign='top'>".$opis."</td>";
+echo "<td class='tbl1' style='width: 30%;' align='center' valign='top'>".$odp['download_title']."<br /><img src='".$obraz."' class='thumb-dl-default thumb-rotate' alt='".$odp['download_title']."'><br />".$locale['018'].$odp['download_count']."<br /><a href='".BASEDIR."downloads.php?download_id=".$odp['download_id']."' class='uip-small uip-button uip-red'>".$locale['017']."</a></td>";
 echo "</tr></table>";
 	} 
 	echo "</li>";
