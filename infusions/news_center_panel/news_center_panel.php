@@ -38,14 +38,15 @@ add_to_head("<style type='text/css'>
 		");
 		if ($kmfn_ustawienia['slider'] == 1) {
 		echo "<ul id='dlticker' class='dl-ticker'>";
-$pytanie = dbquery("SELECT tn.*, tc.*, tu.user_id, tu.user_name, tu.user_status
-			FROM ".DB_NEWS." tn
-			LEFT JOIN ".DB_USERS." tu ON tn.news_name=tu.user_id
-			LEFT JOIN ".DB_NEWS_CATS." tc ON tn.news_cat=tc.news_cat_id
-			WHERE ".groupaccess('news_visibility')." AND (news_start='0'||news_start<=".time().")
-				AND (news_end='0'||news_end>=".time().") AND news_draft='0'
-			GROUP BY news_id
-			ORDER BY news_sticky DESC, news_datestamp DESC LIMIT ".$kmfn_ustawienia['ile']."");
+$pytanie = dbquery(
+	"SELECT tn.*, tc.*, tu.user_id, tu.user_name, tu.user_status, news_news
+	FROM ".DB_NEWS." tn
+	LEFT JOIN ".DB_USERS." tu ON tn.news_name=tu.user_id
+	LEFT JOIN ".DB_NEWS_CATS." tc ON tn.news_cat=tc.news_cat_id
+	WHERE ".groupaccess('news_visibility')." AND (news_start='0'||news_start<=".time().")
+	AND (news_end='0'||news_end>=".time().") AND news_draft='0'
+	GROUP BY news_id
+	ORDER BY news_sticky DESC, news_datestamp DESC LIMIT ".$kmfn_ustawienia['ile']."");
 $brak = dbrows($pytanie);
                if ($brak != 0) {
 						while ($odp = dbarray($pytanie)) {
@@ -63,14 +64,15 @@ echo "</tr></table>";
     }
 	echo "</ul>";
 	} else {
-$pytanie = dbquery("SELECT tn.*, tc.*, tu.user_id, tu.user_name, tu.user_status
-			FROM ".DB_NEWS." tn
-			LEFT JOIN ".DB_USERS." tu ON tn.news_name=tu.user_id
-			LEFT JOIN ".DB_NEWS_CATS." tc ON tn.news_cat=tc.news_cat_id
-			WHERE ".groupaccess('news_visibility')." AND (news_start='0'||news_start<=".time().")
-				AND (news_end='0'||news_end>=".time().") AND news_draft='0'
-			GROUP BY news_id
-			ORDER BY news_sticky DESC, news_datestamp DESC LIMIT ".$kmfn_ustawienia['ile']."");
+$pytanie = dbquery(
+	"SELECT tn.*, tc.*, tu.user_id, tu.user_name, tu.user_status, news_news
+	FROM ".DB_NEWS." tn
+	LEFT JOIN ".DB_USERS." tu ON tn.news_name=tu.user_id
+	LEFT JOIN ".DB_NEWS_CATS." tc ON tn.news_cat=tc.news_cat_id
+	WHERE ".groupaccess('news_visibility')." AND (news_start='0'||news_start<=".time().")
+	AND (news_end='0'||news_end>=".time().") AND news_draft='0'
+	GROUP BY news_id
+	ORDER BY news_sticky DESC, news_datestamp DESC LIMIT ".$kmfn_ustawienia['ile']."");
 $brak = dbrows($pytanie);
                if ($brak != 0) {
 						while ($odp = dbarray($pytanie)) {
